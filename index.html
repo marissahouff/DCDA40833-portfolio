@@ -12,14 +12,19 @@
 <body>
     <!-- Navigation: Links to all portfolio pages -->
     <nav>
-        <ul>
+        <button class="hamburger-menu" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <ul id="nav-menu">
             <li><a href="index.html">Home</a></li>
             <li><a href="lab02.html">Lab 2: AI Evaluation</a></li>
             <li><a href="lab03.html">Lab 3: Visualization Critique</a></li>
             <li><a href="lab04.html">Lab 4: Tableau Visualization</a></li>
             <!-- Add more lab links as the semester progresses -->
         </ul>
-</nav>
+    </nav>
 
     <!-- Header: Your name and course info -->
     <header>
@@ -31,10 +36,10 @@
     <main>
         <!-- Welcome Section: Brief introduction to your portfolio -->
         <section id="welcome">
-            <h2>Welcome</h2>
+            <h2>Welcome!</h2>
             <!-- TODO: Write a brief introduction (2-3 sentences) about your portfolio -->
-            <p>Welcome to my Skills Portfolio for DCDA 40833. This site highlights the projects I completed throughout the semester and reflects my growth in both digital culture and data analytics.</p>
-            <p>Each page features a different lab assignment, showing my progression from foundational web development skills to more advanced work in data visualization and interactive mapping.</p>
+            <p>Welcome to my Skills Portfolio for DCDA 40833! This site highlights the projects I completed throughout the semester and reflects my growth in both digital culture and data analytics.</p>
+            <p>Each page features a different lab assignment, showing my progression from foundational web development skills to more advanced work in data visualization and interactive mapping!</p>
         </section>
 
         <!-- About Section: Tell visitors about yourself -->
@@ -47,7 +52,7 @@
  <!-- I wrote this about me section to give my site a personal touch. I wanted viewers to know about me and my interests!-->
             <!-- Optional: Add a photo of yourself -->
             <figure class="viz-container">
-                <img src="images/profile.jpg" alt="Photo of Marissa Houff" style="width: 300px; height: auto;">
+                <img src="images/profile.jpg" alt="Photo of Marissa Houff" class="profile-img" style="width: 300px; height: auto;">
             </figure>
         </section>
 
@@ -80,7 +85,7 @@
                     <p>Interactive data visualization created with Tableau Public, exploring patterns in real-world data.</p>
                 </a>
 
-                <!-- Lab 5: TBD -->
+                <!--  Lab 5: TBD -->
                 <a href="lab5.html" class="portfolio-card">
                     <h3>Lab 5</h3>
                     <span class="lab-tag">Lab 5</span>
@@ -111,5 +116,39 @@
         <p>&copy; 2026 Marissa Houff| DCDA 40833 | TCU</p>
         <!-- I changed my colors to match my personal brand -->
     </footer>
-</body>
+    <script>
+        // Hamburger Menu Toggle
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('nav-menu');
+        const navLinks = navMenu.querySelectorAll('a');
+
+        // Toggle menu when hamburger is clicked
+        hamburger.addEventListener('click', function() {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+            
+            // Update aria-expanded for accessibility
+            const isExpanded = hamburger.getAttribute('aria-expanded') === 'true';
+            hamburger.setAttribute('aria-expanded', !isExpanded);
+        });
+
+        // Close menu when a link is clicked
+        navLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+                hamburger.setAttribute('aria-expanded', 'false');
+            });
+        });
+
+        // Close menu when clicking outside of nav
+        document.addEventListener('click', function(event) {
+            const isClickInsideNav = event.target.closest('nav');
+            if (!isClickInsideNav && hamburger.classList.contains('active')) {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+                hamburger.setAttribute('aria-expanded', 'false');
+            }
+        });
+    </script></body>
 </html>

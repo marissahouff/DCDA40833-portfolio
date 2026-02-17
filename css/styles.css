@@ -41,7 +41,7 @@ body {
    ========================= */
 /* Style semantic tags directly - no classes needed! */
 header {
-    background-color: var(--primary-color);
+    background-color: var(--secondary-color);
     color: white;
     padding: 2rem 0;
     text-align: center;
@@ -97,6 +97,38 @@ nav a {
 
 nav a:hover {
     background-color: var(--primary-color);
+}
+
+/* Hamburger Menu Button */
+.hamburger-menu {
+    display: none;              /* Hidden by default (shown on mobile) */
+    flex-direction: column;     /* Stack the three lines vertically */
+    background: none;           /* No background */
+    border: none;               /* No border */
+    cursor: pointer;            /* Pointer cursor */
+    padding: 0.5rem;            /* Some padding for touch targets */
+    gap: 0.4rem;                /* Space between lines */
+}
+
+.hamburger-menu span {
+    width: 25px;                /* Width of each line */
+    height: 3px;                /* Thickness of each line */
+    background-color: var(--secondary-color);    /* Pink color */
+    border-radius: 2px;         /* Slightly rounded */
+    transition: all 0.3s ease;  /* Smooth animation */
+}
+
+/* Hamburger menu active state (menu open) */
+.hamburger-menu.active span:nth-child(1) {
+    transform: rotate(45deg) translate(9px, 9px);  /* Top line rotates */
+}
+
+.hamburger-menu.active span:nth-child(2) {
+    opacity: 0;                 /* Middle line fades */
+}
+
+.hamburger-menu.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -7px); /* Bottom line rotates */
 }
 
 /* =========================
@@ -174,6 +206,12 @@ main section li {
     color: var(--text-secondary);
     font-size: 0.9rem;
     margin-top: 0.5rem;
+}
+
+/* Profile image styling */
+.profile-img {
+    border: 8px solid var(--secondary-color);
+    border-radius: 8px;
 }
 
 /* Grid layout for multiple visualizations */
@@ -382,18 +420,45 @@ footer a:hover {
 
     nav {
         font-size: 0.9rem;
+        flex-direction: column; /* Stack nav items vertically */
+        align-items: flex-start;
     }
 
-    /* Stack navigation vertically on mobile */
+    /* Show hamburger menu on mobile */
+    .hamburger-menu {
+        display: flex;          /* Show the hamburger button */
+        order: -1;              /* Place it before the menu */
+    }
+
+    /* Hide navigation menu by default on mobile */
     nav ul {
-        flex-direction: column;  /* Change from row to column */
-        align-items: center;     /* Center the stacked items */
+        flex-direction: column;  /* Stack vertically */
+        align-items: stretch;    /* Full width */
+        width: 100%;            /* Take full width */
+        max-height: 0;          /* Collapsed by default */
+        overflow: hidden;       /* Hide overflow */
+        transition: max-height 0.3s ease; /* Smooth animation */
+    }
+
+    /* Show menu when active */
+    nav ul.active {
+        max-height: 500px;      /* Expand to show all items */
+    }
+
+    nav li {
+        width: 100%;            /* Full width for mobile */
     }
 
     nav a {
         display: block;          /* Full width for easier tapping */
         width: 100%;
         text-align: center;
+        padding: 1rem;           /* More padding on mobile for touch */
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Divider line */
+    }
+
+    nav a:last-child {
+        border-bottom: none;    /* Remove border from last item */
     }
 
     main section {

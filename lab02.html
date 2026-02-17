@@ -7,12 +7,20 @@
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
+    <nav>
+        <button class="hamburger-menu" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <ul id="nav-menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="lab02.html">Lab 2: AI Evaluation</a></li>
+            <li><a href="lab03.html">Lab 3: Visualization Critique</a></li>
+            <li><a href="lab04.html">Lab 4: Tableau Visualization</a></li>
+        </ul>
+    </nav>
     <header>
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="lab02.html" class="active">Lab 2: AI Evaluation</a>
-            <!-- Add more lab links as the semester progresses -->
-        </nav>
         <h1>AI Tool Evaluation</h1>
     </header>
 
@@ -67,5 +75,39 @@ Firefly consistently misunderstood the word “float” and interpreted it as a 
     <footer>
         <p>&copy; 2026 Marissa Houff | <a href="https://github.com/marissahouff/dcda-portfolio">GitHub</a></p>
     </footer>
-</body>
-</html>
+
+    <script>
+        // Hamburger Menu Toggle
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('nav-menu');
+        const navLinks = navMenu.querySelectorAll('a');
+
+        // Toggle menu when hamburger is clicked
+        hamburger.addEventListener('click', function() {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+            
+            // Update aria-expanded for accessibility
+            const isExpanded = hamburger.getAttribute('aria-expanded') === 'true';
+            hamburger.setAttribute('aria-expanded', !isExpanded);
+        });
+
+        // Close menu when a link is clicked
+        navLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+                hamburger.setAttribute('aria-expanded', 'false');
+            });
+        });
+
+        // Close menu when clicking outside of nav
+        document.addEventListener('click', function(event) {
+            const isClickInsideNav = event.target.closest('nav');
+            if (!isClickInsideNav && hamburger.classList.contains('active')) {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+                hamburger.setAttribute('aria-expanded', 'false');
+            }
+        });
+    </script>
