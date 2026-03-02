@@ -22,12 +22,14 @@
             <li><a href="lab02.html">Lab 2: AI Evaluation</a></li>
             <li><a href="lab03.html">Lab 3: Visualization Critique</a></li>
             <li><a href="lab04.html">Lab 4: Tableau Visualization</a></li>
+            <li><a href="lab05.html">Lab 5</a></li>
             <!-- Add more lab links as the semester progresses -->
         </ul>
     </nav>
 
     <!-- Header: Your name and course info -->
     <header>
+        <button class="dark-mode-toggle" id="dark-mode-toggle" aria-label="Toggle dark mode" title="Toggle dark mode"></button>
         <h1>Marissa Houff</h1>
         <p>DCDA 40833 Skills Portfolio | Spring 2026</p>
             <!-- updated to match my name and course -->
@@ -59,47 +61,69 @@
         <!-- Portfolio Section: Links to all lab pages -->
         <section id="portfolio">
             <h2>My Work</h2>
-            <p>Click on any card below to view that lab assignment. Focus of actual labs may change over the course of the semester:</p>
+            <p>Scroll through my lab assignments below:</p>
 
-            <!-- Portfolio Grid: Cards linking to each lab page -->
-            <div class="portfolio-grid">
+            <!-- Carousel Container -->
+            <div class="carousel-container">
+                <!-- Previous Button -->
+                <button class="carousel-btn carousel-prev" id="carousel-prev" aria-label="Previous lab">&lt;</button>
+                
+                <!-- Cards Wrapper -->
+                <div class="carousel-wrapper">
+                    <div class="carousel-slides">
+                        <!-- Lab 3: Tufte Critique -->
+                        <div class="carousel-slide lab-card">
+                            <img src="images/naturality.webp" alt="Visualization Critique" class="lab-hero-image">
+                            <h3>Visualization Critique</h3>
+                            <span class="lab-tag">Lab 3</span>
+                            <p class="lab-description">I analyzed "The Gradient of Naturality: France" using Edward Tufte's principles of graphical excellence. While the visualization is aesthetically beautiful with its artistic design, I critiqued how it prioritizes appearance over data clarity, making it function more effectively as art than as an analytical tool.</p>
+                            <a href="lab03.html" class="lab-link">View Full Lab →</a>
+                        </div>
 
-                <!-- Lab 2: AI Tool Evaluation -->
-                <a href="lab02.html" class="portfolio-card">
-                    <h3>AI Tool Evaluation</h3>
-                    <span class="lab-tag">Lab 2</span>
-                    <p>Analysis of AI tools and their capabilities, exploring how artificial intelligence is changing digital culture.</p>
-                </a>
+                        <!-- Lab 2: AI Tool Evaluation -->
+                        <div class="carousel-slide lab-card">
+                            <img src="images/MarissaHouffResume-3.png" alt="AI Tool Evaluation" class="lab-hero-image">
+                            <h3>AI Tool Evaluation</h3>
+                            <span class="lab-tag">Lab 2</span>
+                            <p class="lab-description">In this lab, I explored AI tools like Google Gemini and Adobe Firefly to evaluate their capabilities and limitations. I tested Gemini's ability to edit my resume and Firefly's image generation for creative projects. This research helped me understand how AI tools can assist with certain tasks while requiring careful human oversight for accuracy.</p>
+                            <a href="lab02.html" class="lab-link">View Full Lab →</a>
+                        </div>
 
-                <!-- Lab 3: Tufte Critique -->
-                <a href="lab03.html" class="portfolio-card">
-                    <h3>Tufte Critique</h3>
-                    <span class="lab-tag">Lab 3</span>
-                    <p>Critical analysis of a data visualization using Edward Tufte's principles of graphical excellence.</p>
-                </a>
+                        <!-- Lab 4: Tableau Visualization -->
+                        <div class="carousel-slide lab-card">
+                            <img src="https://public.tableau.com/static/images/Ho/Hollywood_17709290316460/Story1/1.png" alt="Tableau Visualization" class="lab-hero-image">
+                            <h3>Tableau Visualization</h3>
+                            <span class="lab-tag">Lab 4</span>
+                            <p class="lab-description">I created an interactive data visualization exploring Hollywood's most profitable movies using Tableau Public. This lab taught me how to effectively design visualizations that communicate data insights clearly, and I discovered surprising trends like the profitability of lesser-known films.</p>
+                            <a href="lab04.html" class="lab-link">View Full Lab →</a>
+                        </div>
 
-                <!-- Lab 4: Tableau Visualization -->
-                <a href="lab04.html" class="portfolio-card">
-                    <h3>Tableau Visualization</h3>
-                    <span class="lab-tag">Lab 4</span>
-                    <p>Interactive data visualization created with Tableau Public, exploring patterns in real-world data.</p>
-                </a>
+                        <!-- Lab 5 -->
+                        <div class="carousel-slide lab-card">
+                            <div class="lab-hero-placeholder">Lab 5</div>
+                            <h3>Lab 5</h3>
+                            <span class="lab-tag">Lab 5</span>
+                            <p class="lab-description">Content coming soon. Check back as I complete this lab assignment.</p>
+                            <a href="lab05.html" class="lab-link">View Full Lab →</a>
+                        </div>
 
-                <!--  Lab 5: TBD -->
-                <a href="lab5.html" class="portfolio-card">
-                    <h3>Lab 5</h3>
-                    <span class="lab-tag">Lab 5</span>
-                    <p>Content based on Lab 5 assignment.</p>
-                </a>
-
-                <!-- Lab 6: Hometown Map -->
-                <a href="hometown-map.html" class="portfolio-card">
-                    <h3>Hometown Map</h3>
-                    <span class="lab-tag">Lab 6</span>
-                    <p>Interactive Folium map showcasing meaningful locations from my hometown with personal reflections.</p>
-                </a>
-
+                        <!-- Lab 6: Hometown Map -->
+                        <div class="carousel-slide lab-card">
+                            <div class="lab-hero-placeholder">Hometown Map</div>
+                            <h3>Hometown Map</h3>
+                            <span class="lab-tag">Lab 6</span>
+                            <p class="lab-description">An interactive Folium map showcasing meaningful locations from my hometown with personal reflections. This project combines data visualization with storytelling to highlight places that have shaped my perspective and experiences.</p>
+                            <a href="hometown-map.html" class="lab-link">View Full Lab →</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Next Button -->
+                <button class="carousel-btn carousel-next" id="carousel-next" aria-label="Next lab">&gt;</button>
             </div>
+            
+            <!-- Dot Indicators -->
+            <div class="carousel-dots" id="carousel-dots"></div>
         </section>
 
         <!-- Reflection Section: Optional semester reflection -->
@@ -117,6 +141,79 @@
         <!-- I changed my colors to match my personal brand -->
     </footer>
     <script>
+        // Carousel Functionality
+        const carouselPrev = document.getElementById('carousel-prev');
+        const carouselNext = document.getElementById('carousel-next');
+        const carouselSlides = document.querySelector('.carousel-slides');
+        const carouselDotsContainer = document.getElementById('carousel-dots');
+        const slides = Array.from(document.querySelectorAll('.carousel-slide'));
+        let currentSlide = 0;
+
+        console.log('Total slides:', slides.length); // Debug log
+
+        // Create dots for each slide
+        slides.forEach((_, index) => {
+            const dot = document.createElement('span');
+            dot.classList.add('carousel-dot');
+            if (index === 0) dot.classList.add('active');
+            dot.addEventListener('click', () => goToSlide(index));
+            carouselDotsContainer.appendChild(dot);
+        });
+
+        const dots = document.querySelectorAll('.carousel-dot');
+
+        function updateCarousel() {
+            // Move slides container
+            const offset = -currentSlide * 100;
+            carouselSlides.style.transform = `translateX(${offset}%)`;
+            
+            // Update dots
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentSlide);
+            });
+            
+            console.log('Current slide:', currentSlide); // Debug log
+        }
+
+        function goToSlide(index) {
+            currentSlide = index;
+            updateCarousel();
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % slides.length;
+            updateCarousel();
+        }
+
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+            updateCarousel();
+        }
+
+        carouselNext.addEventListener('click', nextSlide);
+        carouselPrev.addEventListener('click', prevSlide);
+
+        // Dark Mode Toggle
+        const darkModeToggle = document.getElementById('dark-mode-toggle');
+        const htmlElement = document.documentElement;
+        
+        // Check if user has a saved dark mode preference
+        const darkModePreference = localStorage.getItem('darkMode');
+        if (darkModePreference === 'enabled') {
+            htmlElement.classList.add('dark-mode');
+        }
+        
+        // Toggle dark mode when button is clicked
+        darkModeToggle.addEventListener('click', function() {
+            htmlElement.classList.toggle('dark-mode');
+            
+            if (htmlElement.classList.contains('dark-mode')) {
+                localStorage.setItem('darkMode', 'enabled');
+            } else {
+                localStorage.setItem('darkMode', 'disabled');
+            }
+        });
+
         // Hamburger Menu Toggle
         const hamburger = document.getElementById('hamburger');
         const navMenu = document.getElementById('nav-menu');

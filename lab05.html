@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab 5 | Marissa Houff</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <nav>
+        <button class="hamburger-menu" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+            <!-- I know what it does but not how to code it, not sure what aria-label is! -->
+        </button>
+        <ul id="nav-menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="lab02.html">Lab 2: AI Evaluation</a></li>
+            <li><a href="lab03.html">Lab 3: Visualization Critique</a></li>
+            <li><a href="lab04.html">Lab 4: Tableau Visualization</a></li>
+            <li><a href="lab05.html">Lab 5</a></li>
+        </ul>
+    </nav>
+    <header>
+        <button class="dark-mode-toggle" id="dark-mode-toggle" aria-label="Toggle dark mode" title="Toggle dark mode"></button>
+        <h1>Lab 5</h1>
+    </header>
+
+    <main>
+        <section>
+            <h2>Lab 5 Content</h2>
+            <p>Content coming soon.</p>
+        </section>
+</main>
+
+<footer>
+  <p>&copy; 2026 Marissa Houff</p>
+</footer>
+
+<script>
+
+  // I understand the logic.
+  const darkModeToggle = document.getElementById('dark-mode-toggle');
+  const htmlElement = document.documentElement;
+
+  const darkModePreference = localStorage.getItem('darkMode');
+  if (darkModePreference === 'enabled') {
+    htmlElement.classList.add('dark-mode');
+  }
+
+  // I understand the logic. When clicked, toggle dark mode is enabled and disabled.
+  darkModeToggle.addEventListener('click', function () {
+    htmlElement.classList.toggle('dark-mode');
+
+    if (htmlElement.classList.contains('dark-mode')) {
+      localStorage.setItem('darkMode', 'enabled');
+    } else {
+      localStorage.setItem('darkMode', 'disabled');
+    }
+  });
+
+
+  // I don't understand what this does. I know it has to do with the hamburger menu but I don't understand how it works.
+  const hamburger = document.getElementById('hamburger');
+  const navMenu = document.getElementById('nav-menu');
+  const navLinks = navMenu.querySelectorAll('a');
+
+  // Im not sure I understand the logic. I know it toggles the menu.
+  hamburger.addEventListener('click', function () {
+    hamburger.classList.toggle('active');
+    navMenu.classList.toggle('active');
+
+    const isExpanded = hamburger.getAttribute('aria-expanded') === 'true';
+    hamburger.setAttribute('aria-expanded', !isExpanded);
+  });
+
+  // I understand the logic after looking up what it does. If you click a link, close the menu.
+  navLinks.forEach(link => {
+    link.addEventListener('click', function () {
+      hamburger.classList.remove('active');
+      navMenu.classList.remove('active');
+      hamburger.setAttribute('aria-expanded', 'false');
+    });
+  });
+
+  document.addEventListener('click', function (event) {
+    const isClickInsideNav = event.target.closest('nav');
+    if (!isClickInsideNav && hamburger.classList.contains('active')) {
+      hamburger.classList.remove('active');
+      navMenu.classList.remove('active');
+      hamburger.setAttribute('aria-expanded', 'false');
+    }
+  });
+</script>
+</body>
+</html>
