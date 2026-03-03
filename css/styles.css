@@ -89,24 +89,24 @@ header p {
 .dark-mode-toggle {
     position: absolute;
     top: 1rem;
-    right: 1rem;
-    width: 60px;
+    right: 1rem; /* I understand the logic positions it in the top-right corner */
+    width: 60px;     /* I wrote this it controls size of toggle */
     height: 34px;
     padding: 0;
-    background: rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.3);  /* after loking it up I know what it does: semi-transparent background */
     border: none;
-    border-radius: 34px;
+    border-radius: 34px;  /* I understand the logic it makes it pill-shaped */
     cursor: pointer;
-    display: flex;
+    display: flex;  /* I know what it does it vertically centers inside, but flex still confuses me */
     align-items: center;
     transition: all 0.3s ease;
-    z-index: 101;
+    z-index: 101; /* I don’t fully understand this. I know it controls layering */
     appearance: none;
     -webkit-appearance: none;
 }
 
 .dark-mode-toggle::before {
-    content: '';
+    content: '';  /* I don’t fully understand this. I know it creates the circle inside the toggle */
     position: absolute;
     width: 26px;
     height: 26px;
@@ -130,13 +130,13 @@ html.dark-mode .dark-mode-toggle {
 
 html.dark-mode .dark-mode-toggle::before {
     left: 30px;
-}
+} /* I understand the logic — moves knob to right when dark mode is active */
 
 nav {
     background-color: #4a7c59;
     padding: 0.75rem;
     display: flex;              /* Make nav a flex container */
-    justify-content: center;    /* Center the ul inside nav */
+    justify-content: center;    /* Center the ul inside nav */   /* I understand the logic it centers nav items */
     position: sticky;           /* Stick to top when scrolling */
     top: 0;
     z-index: 100;
@@ -177,6 +177,7 @@ nav a:hover {
 .hamburger-menu {
     display: none;              /* Hidden by default on desktop */
     flex-direction: column;     /* Stack the three lines vertically */
+     /* I know what it does itstacks lines vertically, but I don’t fully get flex so I had to look it up */
     background: none;           /* No background */
     border: none;               /* No border */
     cursor: pointer;            /* Pointer cursor */
@@ -633,15 +634,19 @@ html.dark-mode .carousel-dot.active {
     transition: all 0.3s ease;
     position: relative;
 }
+ /* I understand the logic — makes the whole card clickable like a block and changes the color and rounds the corners. It also adds a hover effect. */
+
 
 .portfolio-card:hover {
     border-color: var(--primary-color);
     box-shadow: 0 8px 16px rgba(77, 25, 121, 0.15);
+    /* I know what it does — adds shadow, but I couldn’t recreate this from memory */
     transform: translateY(-4px);
-}
+} /* I understand the logic — changes border on hover */
 
 .portfolio-card h3 {
     color: var(--primary-color);
+    /* I understand the logic — keeps headings on brand */
     margin: 0 0 0.5rem 0;
     font-size: 1.25rem;
 }
@@ -649,8 +654,10 @@ html.dark-mode .carousel-dot.active {
 .portfolio-card p {
     color: var(--text-secondary);
     font-size: 0.95rem;
+        /* I wrote this — slightly smaller paragraph text */
     margin: 0.75rem 0 0 0;
     line-height: 1.5;
+        /* I understand the logic — improves readability */
 }
 
 /* Lab tag badge on portfolio cards */
@@ -660,10 +667,12 @@ html.dark-mode .carousel-dot.active {
     color: white;
     font-size: 0.75rem;
     font-weight: 600;
+      /* I know what it does. makes text bolder, not sure exact scale */
     padding: 0.25rem 0.5rem;
     border-radius: 4px;
     text-transform: uppercase;
     letter-spacing: 0.5px;
+    /* I know what it does — spreads letters slightly */
 }
 
 /* =========================
@@ -673,6 +682,8 @@ footer {
     background-color: #333;
     color: white;
     text-align: center;
+       /* I understand the logic — centers text */
+
     padding: 1.5rem;
     margin-top: 2rem;
 }
