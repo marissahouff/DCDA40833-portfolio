@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lab 5 | Marissa Houff</title>
+    <title>Lab 5: Vibe coding | Marissa Houff</title>
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
@@ -19,46 +19,79 @@
             <li><a href="lab02.html">Lab 2: AI Evaluation</a></li>
             <li><a href="lab03.html">Lab 3: Visualization Critique</a></li>
             <li><a href="lab04.html">Lab 4: Tableau Visualization</a></li>
-            <li><a href="lab05.html">Lab 5</a></li>
+            <li><a href="lab05.html">Lab 5: Vibe coding</a></li>
         </ul>
     </nav>
     <header>
         <button class="dark-mode-toggle" id="dark-mode-toggle" aria-label="Toggle dark mode" title="Toggle dark mode"></button>
-        <h1>Lab 5</h1>
+        <h1>Lab 5: Vibe coding</h1>
     </header>
 
     <main>
         <section>
-            <h2>Introduction</h2>
-            <p>In this lab, I used AI assistance to help build and understand features on my portfolio website. I explored how to work effectively with AI tools while maintaining my own understanding of the code. This included the dark mode toggle functionality and the carousel slider for displaying my lab work.</p>
-        </section>
-
-        <section>
-            <h2>What I Built/Analyzed</h2>
-            <p>I developed two main features for my portfolio with AI assistance:</p>
-            <h3>1. Dark Mode Toggle</h3>
-            <p>A responsive toggle switch that allows users to switch between light and dark color schemes. The implementation uses CSS custom properties (variables) to manage color changes and localStorage to save user preferences.</p>
-            
-            <h3>2. Carousel Slider</h3>
-            <p>An interactive carousel that showcases my lab assignments one at a time with navigation arrows and dot indicators. Each slide displays a lab image, title, description, and link to the full lab.</p>
-        </section>
-
-        <section>
-            <h2>Vibe Coding Guidelines</h2>
-            <p>Through this lab, I developed the following personal coding practices:</p>
+            <h2>Overview</h2>
+            <p>For Lab 5, I used AI-assisted "vibe coding" to add two new features to my portfolio website. These were features I would not have been able to build from scratch. I used AI to generate initial code, then modified and debugged it to fit my design and layout. From there, I revised, tested, and restyled everything to match my site.</p>
+            <p>The three main things I built and worked on:</p>
             <ul>
-                <li><strong>Understand Before You Copy:</strong> Even when AI generates code, I take time to understand what each line does. I added comments explaining the logic in my own words.</li>
-                <li><strong>Accessibility Matters:</strong> I pay attention to features like aria-labels and aria-expanded attributes that make my site usable for everyone, not just those with perfect vision.</li>
-                <li><strong>User Preferences:</strong> I save user choices (like dark mode preference) to localStorage so their experience is personalized across visits.</li>
-                <li><strong>Responsive Design:</strong> Features should work on both desktop and mobile. I use CSS to adapt button sizes and layouts for smaller screens.</li>
-                <li><strong>Meaningful Comments:</strong> Comments should explain the "why" not just the "what." What did I struggle with? What surprised me?</li>
-                <li><strong>Test Incrementally:</strong> Instead of building everything at once, I tested each feature (dark mode, then carousel) to catch problems early.</li>
+                <li>A dark/light mode toggle</li>
+                <li>A carousel on my homepage to display my labs</li>
+                <li>Debugging a hamburger menu issue caused by the new features</li>
             </ul>
         </section>
 
         <section>
-            <h2>Key Takeaways</h2>
-            <p>This lab taught me that AI is a tool for acceleration, not a replacement for understanding. I can use AI to help generate code, but I need to take responsibility for comprehending it, testing it, and making sure it aligns with my accessibility and design standards. The features I built enhance my portfolio's user experience while teaching me valuable lessons about interactive web design.</p>
+            <h2>Feature 1: Dark / Light Mode Toggle</h2>
+            <h3>What I Built</h3>
+            <p>For this feature, I added a dark/light mode toggle to the top of my website. When a user clicks it, the website switches themes, and their preference is saved so it stays the same even after refreshing the page. This was not something I would have known how to build on my own. I needed AI to generate the starting structure for me.</p>
+            <p>The first version AI gave me included emojis and styling that didn't feel like my website at all. It technically worked, but it didn't match my aesthetic. I simplified it into a clean, minimal toggle with a basic on/off mechanism. That change made it feel much more cohesive and aligned with my branding.</p>
+
+            <h3>What I'm Still Learning</h3>
+            <p>I was still unsure what <code>aria-label</code> and <code>aria-expanded</code> actually did. After looking it up, I realized they are accessibility features. They act as hidden descriptions that help screen readers understand what an element does and whether something (like a menu) is expanded or collapsed. I understand the purpose now, but I would still need to look at examples to confidently implement them again.</p>
+        </section>
+
+        <section>
+            <h2>Feature 2: Homepage Lab Carousel</h2>
+            <h3>What I Built</h3>
+            <p>I also created a carousel on my homepage to display my labs. Each slide now includes a different lab and a photo, which improves both the function and the overall aesthetic of the page.</p>
+            <p>The first version AI generated technically "worked," but it created six duplicate slides of the same lab stretched across the screen. That obviously didn't make sense for my website. After going back and forth with AI and revising the structure, I fixed the issue so each slide represents a different lab. This part required more troubleshooting than I expected, but it forced me to actually look closely at how the structure was working.</p>
+        </section>
+
+        <section>
+            <h2>Debugging: Hamburger Menu Issue</h2>
+            <p>While adding these new features, my hamburger icon in the top left corner disappeared. This wasn't something I expected. After troubleshooting, I realized that changes to my CSS and layout were interfering with how it displayed.</p>
+            <p>I fixed it so the hamburger icon appears on smaller screens and disappears on larger screens where the full navigation bar is already visible. This made the site more responsive and actually improved it beyond how it functioned before.</p>
+            <p>Here is an example of my understanding of the code — a comment I left in the hamburger menu button:</p>
+            <pre><code>&lt;button class="hamburger-menu" id="hamburger" aria-label="Toggle menu" aria-expanded="false"&gt;
+    &lt;span&gt;&lt;/span&gt;
+    &lt;span&gt;&lt;/span&gt;
+    &lt;span&gt;&lt;/span&gt;
+    &lt;!-- I know what it does but not how to code it, not sure what aria-label is! --&gt;
+&lt;/button&gt;</code></pre>
+        </section>
+
+        <section>
+            <h2>My Vibe Coding Guidelines</h2>
+            <p>After completing this lab, I realized that AI is helpful, but only if I use it intentionally. My guidelines are:</p>
+            <ul>
+                <li>I will use AI to generate starting points for features I haven't learned yet.</li>
+                <li>I will try to solve problems myself before immediately asking AI to fix them.</li>
+                <li>I will never blindly copy and paste without reading and modifying the code.</li>
+                <li>I will clearly document what AI generated and what I changed.</li>
+                <li>I won't claim full ownership over something I didn't meaningfully contribute to.</li>
+            </ul>
+            <p>AI can speed up the process, but I am still responsible for understanding what I'm building and making sure it actually works for my website.</p>
+        </section>
+
+        <section>
+            <h2>Example of My Update</h2>
+            <figure>
+                <img src="images/light-mode-example.png" alt="Screenshot of my website in light mode showing the updated Lab 5 page" style="max-width: 350px; height: auto;">
+                <figcaption>Light mode view of my updated website.</figcaption>
+            </figure>
+            <figure>
+                <img src="images/dark-mode-example.png" alt="Screenshot of my website in dark mode showing the updated Lab 5 page" style="max-width: 350px; height: auto;">
+                <figcaption>Dark mode view of my updated website.</figcaption>
+            </figure>
         </section>
     </main>
 
