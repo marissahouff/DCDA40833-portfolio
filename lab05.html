@@ -29,69 +29,98 @@
 
     <main>
         <section>
-            <h2>Lab 5 Content</h2>
-            <p>Content coming soon.</p>
+            <h2>Introduction</h2>
+            <p>In this lab, I used AI assistance to help build and understand features on my portfolio website. I explored how to work effectively with AI tools while maintaining my own understanding of the code. This included the dark mode toggle functionality and the carousel slider for displaying my lab work.</p>
         </section>
-</main>
+
+        <section>
+            <h2>What I Built/Analyzed</h2>
+            <p>I developed two main features for my portfolio with AI assistance:</p>
+            <h3>1. Dark Mode Toggle</h3>
+            <p>A responsive toggle switch that allows users to switch between light and dark color schemes. The implementation uses CSS custom properties (variables) to manage color changes and localStorage to save user preferences.</p>
+            
+            <h3>2. Carousel Slider</h3>
+            <p>An interactive carousel that showcases my lab assignments one at a time with navigation arrows and dot indicators. Each slide displays a lab image, title, description, and link to the full lab.</p>
+        </section>
+
+        <section>
+            <h2>Vibe Coding Guidelines</h2>
+            <p>Through this lab, I developed the following personal coding practices:</p>
+            <ul>
+                <li><strong>Understand Before You Copy:</strong> Even when AI generates code, I take time to understand what each line does. I added comments explaining the logic in my own words.</li>
+                <li><strong>Accessibility Matters:</strong> I pay attention to features like aria-labels and aria-expanded attributes that make my site usable for everyone, not just those with perfect vision.</li>
+                <li><strong>User Preferences:</strong> I save user choices (like dark mode preference) to localStorage so their experience is personalized across visits.</li>
+                <li><strong>Responsive Design:</strong> Features should work on both desktop and mobile. I use CSS to adapt button sizes and layouts for smaller screens.</li>
+                <li><strong>Meaningful Comments:</strong> Comments should explain the "why" not just the "what." What did I struggle with? What surprised me?</li>
+                <li><strong>Test Incrementally:</strong> Instead of building everything at once, I tested each feature (dark mode, then carousel) to catch problems early.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Key Takeaways</h2>
+            <p>This lab taught me that AI is a tool for acceleration, not a replacement for understanding. I can use AI to help generate code, but I need to take responsibility for comprehending it, testing it, and making sure it aligns with my accessibility and design standards. The features I built enhance my portfolio's user experience while teaching me valuable lessons about interactive web design.</p>
+        </section>
+    </main>
 
 <footer>
   <p>&copy; 2026 Marissa Houff</p>
 </footer>
 
 <script>
-
-  // I understand the logic.
-  const darkModeToggle = document.getElementById('dark-mode-toggle');
-  const htmlElement = document.documentElement;
-
-  const darkModePreference = localStorage.getItem('darkMode');
-  if (darkModePreference === 'enabled') {
-    htmlElement.classList.add('dark-mode');
-  }
-
-  // I understand the logic. When clicked, toggle dark mode is enabled and disabled.
-  darkModeToggle.addEventListener('click', function () {
-    htmlElement.classList.toggle('dark-mode');
-
-    if (htmlElement.classList.contains('dark-mode')) {
-      localStorage.setItem('darkMode', 'enabled');
-    } else {
-      localStorage.setItem('darkMode', 'disabled');
+    // Dark Mode Toggle
+    const darkModeToggle = document.getElementById('dark-mode-toggle');
+    const htmlElement = document.documentElement;
+    
+    // Check if user has a saved dark mode preference
+    const darkModePreference = localStorage.getItem('darkMode');
+    if (darkModePreference === 'enabled') {
+        htmlElement.classList.add('dark-mode');
     }
-  });
-
-
-  // I don't understand what this does. I know it has to do with the hamburger menu but I don't understand how it works.
-  const hamburger = document.getElementById('hamburger');
-  const navMenu = document.getElementById('nav-menu');
-  const navLinks = navMenu.querySelectorAll('a');
-
-  // Im not sure I understand the logic. I know it toggles the menu.
-  hamburger.addEventListener('click', function () {
-    hamburger.classList.toggle('active');
-    navMenu.classList.toggle('active');
-
-    const isExpanded = hamburger.getAttribute('aria-expanded') === 'true';
-    hamburger.setAttribute('aria-expanded', !isExpanded);
-  });
-
-  // I understand the logic after looking up what it does. If you click a link, close the menu.
-  navLinks.forEach(link => {
-    link.addEventListener('click', function () {
-      hamburger.classList.remove('active');
-      navMenu.classList.remove('active');
-      hamburger.setAttribute('aria-expanded', 'false');
+    
+    // Toggle dark mode when button is clicked
+    darkModeToggle.addEventListener('click', function() {
+        htmlElement.classList.toggle('dark-mode');
+        
+        if (htmlElement.classList.contains('dark-mode')) {
+            localStorage.setItem('darkMode', 'enabled');
+        } else {
+            localStorage.setItem('darkMode', 'disabled');
+        }
     });
-  });
 
-  document.addEventListener('click', function (event) {
-    const isClickInsideNav = event.target.closest('nav');
-    if (!isClickInsideNav && hamburger.classList.contains('active')) {
-      hamburger.classList.remove('active');
-      navMenu.classList.remove('active');
-      hamburger.setAttribute('aria-expanded', 'false');
-    }
-  });
+    // Hamburger Menu Toggle
+    const hamburger = document.getElementById('hamburger');
+    const navMenu = document.getElementById('nav-menu');
+    const navLinks = navMenu.querySelectorAll('a');
+
+    // Toggle menu when hamburger is clicked
+    hamburger.addEventListener('click', function() {
+        hamburger.classList.toggle('active');
+        navMenu.classList.toggle('active');
+        
+        // Update aria-expanded for accessibility
+        const isExpanded = hamburger.getAttribute('aria-expanded') === 'true';
+        hamburger.setAttribute('aria-expanded', !isExpanded);
+    });
+
+    // Close menu when a link is clicked
+    navLinks.forEach(link => {
+        link.addEventListener('click', function() {
+            hamburger.classList.remove('active');
+            navMenu.classList.remove('active');
+            hamburger.setAttribute('aria-expanded', 'false');
+        });
+    });
+
+    // Close menu when clicking outside of nav
+    document.addEventListener('click', function(event) {
+        const isClickInsideNav = event.target.closest('nav');
+        if (!isClickInsideNav && hamburger.classList.contains('active')) {
+            hamburger.classList.remove('active');
+            navMenu.classList.remove('active');
+            hamburger.setAttribute('aria-expanded', 'false');
+        }
+    });
 </script>
 </body>
 </html>

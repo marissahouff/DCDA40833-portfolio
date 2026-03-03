@@ -18,6 +18,7 @@
 
 /* Dark mode color scheme */
 :root.dark-mode {
+    /* I understand the logic. When clicked, toggle dark mode is enabled and disabled. */
     --primary-color: #a8c5a0;      /* Lighter sage for dark mode */
     --secondary-color: #f0a8a0;    /* Lighter coral/pink for dark mode */
     --accent-color: #f5b876;       /* Warm gold for dark mode */
@@ -55,6 +56,7 @@ body {
     line-height: 1.6;
     color: var(--text-color);
     background-color: var(--bg-color);
+    /* I understand the logic. */
 }
 
 /* =========================
@@ -83,6 +85,7 @@ header p {
 }
 
 /* Dark Mode Toggle Button */
+/* I know what it does but not how to code it, not sure what aria-label is! */
 .dark-mode-toggle {
     position: absolute;
     top: 1rem;
@@ -169,22 +172,29 @@ nav a:hover {
 }
 
 /* Hamburger Menu Button */
+/* I don't understand what this does. I know it has to do with the hamburger menu but I don't understand how it works. */
+/* Im not sure I understand the logic. I know it toggles the menu. */
 .hamburger-menu {
-    display: none;              /* Hidden by default (shown on mobile) */
+    display: none;              /* Hidden by default on desktop */
     flex-direction: column;     /* Stack the three lines vertically */
     background: none;           /* No background */
     border: none;               /* No border */
     cursor: pointer;            /* Pointer cursor */
     padding: 0.5rem;            /* Some padding for touch targets */
     gap: 0.4rem;                /* Space between lines */
+    width: 40px;                /* Explicit width */
+    height: 40px;               /* Explicit height */
+    justify-content: center;    /* Center the spans vertically */
+    align-items: center;        /* Center the spans horizontally */
 }
 
 .hamburger-menu span {
-    width: 25px;                /* Width of each line */
+    width: 28px;                /* Width of each line */
     height: 3px;                /* Thickness of each line */
-    background-color: var(--secondary-color);    /* Pink color */
+    background-color: white;    /* White color for visibility */
     border-radius: 2px;         /* Slightly rounded */
     transition: all 0.3s ease;  /* Smooth animation */
+    display: block;             /* Ensure they're block elements */
 }
 
 /* Hamburger menu active state (menu open) */
@@ -694,29 +704,36 @@ footer a:hover {
 
     nav {
         font-size: 0.9rem;
-        flex-direction: column; /* Stack nav items vertically */
-        align-items: flex-start;
+        flex-direction: row;    /* Keep row for alignment */
+        align-items: center;
+        padding: 0.5rem;
     }
 
     /* Show hamburger menu on mobile */
     .hamburger-menu {
-        display: flex;          /* Show the hamburger button */
-        order: -1;              /* Place it before the menu */
+        display: flex !important;   /* Show the hamburger button on mobile */
+        order: -1;                   /* Place it before the menu */
     }
 
     /* Hide navigation menu by default on mobile */
     nav ul {
-        flex-direction: column;  /* Stack vertically */
-        align-items: stretch;    /* Full width */
-        width: 100%;            /* Take full width */
-        max-height: 0;          /* Collapsed by default */
-        overflow: hidden;       /* Hide overflow */
+        position: absolute;         /* Remove from flow */
+        top: 100%;                  /* Below the nav */
+        left: 0;
+        right: 0;
+        flex-direction: column;     /* Stack vertically */
+        align-items: stretch;       /* Full width */
+        width: 100%;                /* Take full width */
+        max-height: 0;              /* Collapsed by default */
+        overflow: hidden;           /* Hide overflow */
         transition: max-height 0.3s ease; /* Smooth animation */
+        background-color: #4a7c59;  /* Match nav background */
     }
 
     /* Show menu when active */
     nav ul.active {
-        max-height: 500px;      /* Expand to show all items */
+        /* I understand the logic after looking up what it does. If you click a link, close the menu. */
+        max-height: 500px;          /* Expand to show all items */
     }
 
     nav li {
@@ -724,11 +741,12 @@ footer a:hover {
     }
 
     nav a {
-        display: block;          /* Full width for easier tapping */
+        display: block;         /* Full width for easier tapping */
         width: 100%;
         text-align: center;
-        padding: 1rem;           /* More padding on mobile for touch */
+        padding: 1rem;          /* More padding on mobile for touch */
         border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Divider line */
+        margin: 0;
     }
 
     nav a:last-child {
