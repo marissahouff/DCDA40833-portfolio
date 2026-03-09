@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab 6: Hometown Map | Marissa Houff</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        .map-container {
+            width: 100%;
+            max-width: 900px;
+            margin: 1.5rem auto;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+        }
+        .map-container iframe {
+            width: 100%;
+            height: 500px;
+            border: none;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <button class="hamburger-menu" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <ul id="nav-menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="lab02.html">Lab 2: AI Evaluation</a></li>
+            <li><a href="lab03.html">Lab 3: Visualization Critique</a></li>
+            <li><a href="lab04.html">Lab 4: Tableau Visualization</a></li>
+            <li><a href="lab05.html">Lab 5: Vibe coding</a></li>
+            <li><a href="lab06.html">Lab 6: Hometown Map</a></li>
+        </ul>
+    </nav>
+    <header>
+        <button class="dark-mode-toggle" id="dark-mode-toggle" aria-label="Toggle dark mode" title="Toggle dark mode"></button>
+        <h1>Lab 6: Hometown Map</h1>
+    </header>
+
+    <main>
+        <section>
+            <h2>My Nashville Map</h2>
+            <p>This interactive map highlights 10 of my favorite places in Nashville, Tennessee. Click on any marker to see the location name, a photo, and why it's meaningful to me. You can zoom in and out and pan around the map.</p>
+
+            <div class="map-container">
+                <iframe src="hometown_map.html" title="Interactive Hometown Map of Nashville"></iframe>
+            </div>
+        </section>
+
+        <section>
+            <h2>About This Project</h2>
+            <p>For this lab, I built an interactive map of my hometown using Python, Folium, and the Mapbox API. I created a CSV file of 10 meaningful locations in Nashville — including parks, restaurants, music venues, and more — and wrote a Python script to geocode each address and plot them on a custom-styled Mapbox basemap.</p>
+            <p>Each marker is color-coded by location type and includes a popup with the place name, my personal description, and a photo. The map was generated as an HTML file and embedded into this page.</p>
+
+            <h3>Tools Used</h3>
+            <ul>
+                <li><strong>Python</strong> — scripting and data processing</li>
+                <li><strong>Folium</strong> — generating the interactive Leaflet map</li>
+                <li><strong>Pandas</strong> — reading and managing the CSV data</li>
+                <li><strong>Mapbox Geocoding API</strong> — converting addresses to coordinates</li>
+                <li><strong>Mapbox Studio</strong> — custom map style</li>
+            </ul>
+
+            <h3>What I Learned</h3>
+            <p>This project taught me how to use APIs to geocode real-world addresses, how to create interactive web maps with Python, and how to style and customize map tiles using Mapbox Studio. I also learned how to embed generated HTML files into a larger website layout.</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Marissa Houff. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Hamburger menu toggle
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('nav-menu');
+        hamburger.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            hamburger.classList.toggle('active');
+            hamburger.setAttribute('aria-expanded', navMenu.classList.contains('active'));
+        });
+
+        // Dark mode toggle
+        const darkModeToggle = document.getElementById('dark-mode-toggle');
+        const htmlElement = document.documentElement;
+        if (localStorage.getItem('darkMode') === 'enabled') {
+            htmlElement.classList.add('dark-mode');
+        }
+        darkModeToggle.addEventListener('click', () => {
+            htmlElement.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', htmlElement.classList.contains('dark-mode') ? 'enabled' : 'disabled');
+        });
+    </script>
+</body>
+</html>
