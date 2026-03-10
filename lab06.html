@@ -54,21 +54,24 @@
         </section>
 
         <section>
+            <h2>Design Inspiration</h2>
+            <div style="display:flex; gap:1rem; justify-content:center; margin-bottom:1.5rem;">
+                <img src="images/map_inspo1.png" alt="Map design inspiration 1" style="width:45%; height:auto; border-radius:8px; object-fit:cover;">
+                <img src="images/map_inspo2.png" alt="Map design inspiration 2" style="width:45%; height:auto; border-radius:8px; object-fit:cover;">
+            </div>
+        </section>
+
+        <section>
             <h2>About This Project</h2>
-            <p>For this lab, I built an interactive map of my hometown using Python, Folium, and the Mapbox API. I created a CSV file of 10 meaningful locations in Nashville — including parks, restaurants, music venues, and more — and wrote a Python script to geocode each address and plot them on a custom-styled Mapbox basemap.</p>
-            <p>Each marker is color-coded by location type and includes a popup with the place name, my personal description, and a photo. The map was generated as an HTML file and embedded into this page.</p>
 
-            <h3>Tools Used</h3>
-            <ul>
-                <li><strong>Python</strong> — scripting and data processing</li>
-                <li><strong>Folium</strong> — generating the interactive Leaflet map</li>
-                <li><strong>Pandas</strong> — reading and managing the CSV data</li>
-                <li><strong>Mapbox Geocoding API</strong> — converting addresses to coordinates</li>
-                <li><strong>Mapbox Studio</strong> — custom map style</li>
-            </ul>
+            <h3>Basemap Design</h3>
+            <p>The design for my basemap was inspired by colorful interior design palettes and floral arrangements. I liked how the inspiration images use soft pastel colors like pink, green, blue, and cream while still feeling bright and playful. The patterns and textures in the fabric swatches especially stood out to me because they combine multiple colors without looking overwhelming. I wanted my map to have a similar feeling of light, colorful, and visually interesting without being distracting. To translate this into my map design, I used pastel tones for different features. The roads appear in light pink and the green spaces are soft green so they match the overall palette from my inspiration images. I also kept the background fairly light so the colors stand out but still feel calm. The goal was to make the map feel a little more creative and personal instead of looking like a standard default map.</p>
 
-            <h3>What I Learned</h3>
-            <p>This project taught me how to use APIs to geocode real-world addresses, how to create interactive web maps with Python, and how to style and customize map tiles using Mapbox Studio. I also learned how to embed generated HTML files into a larger website layout.</p>
+            <h3>Design Challenges</h3>
+            <p>One of the biggest challenges when designing the basemap was thinking about how it would look at different zoom levels. When the map is zoomed out, there is a lot of information visible, so I had to make sure the colors and features didn't make the map feel too busy. I focused on keeping major roads and parks visible while smaller details became clearer only when zooming in. Another challenge was deciding what information should stand out the most. Since this map highlights my favorite places in Nashville, I wanted the markers to be easy to see. That meant keeping the basemap colors softer so the markers would draw attention without blending into the background.</p>
+
+            <h3>Technical Challenges</h3>
+            <p>The technical part that was most challenging was connecting everything together with Python and Mapbox. I had to geocode my locations, add them as markers, and create pop-ups that include images and descriptions. At first, I had some issues with formatting and getting the map to display correctly. I used AI tools to help troubleshoot some of the code and explain what certain sections were doing. This helped me understand how the Mapbox token, geocoding requests, and marker layers worked together. After adjusting a few things in the code, everything started working properly and I was able to create the interactive map successfully. Overall, this project helped me understand how design choices, data, and coding all work together to create an interactive map.</p>
         </section>
     </main>
 

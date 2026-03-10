@@ -119,7 +119,7 @@ def main():
         style = TYPE_STYLE.get(row["Type"].strip(), DEFAULT_STYLE)
         popup_html = build_popup_html(row)
 
-        folium.Marker(
+        fohlium.Marker(
             location=[row["Latitude"], row["Longitude"]],
             popup=folium.Popup(popup_html, max_width=320),
             tooltip=row["Name"],
