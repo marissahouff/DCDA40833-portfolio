@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab Reflections | Marissa Houff</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        .reflection-card {
+            margin-bottom: 2.5rem;
+        }
+        .reflection-card h3 {
+            margin-bottom: 0.5rem;
+        }
+        .pdf-viewer {
+            width: 100%;
+            height: 600px;
+            border: none;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            margin-top: 0.75rem;
+        }
+        .download-link {
+            display: inline-block;
+            margin-top: 0.75rem;
+            padding: 0.5rem 1rem;
+            background: #6c7a89;
+            color: #fff;
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: 0.95rem;
+        }
+        .download-link:hover {
+            background: #556270;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <button class="hamburger-menu" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <ul id="nav-menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="lab02.html">Lab 2: AI Evaluation</a></li>
+            <li><a href="lab03.html">Lab 3: Visualization Critique</a></li>
+            <li><a href="lab04.html">Lab 4: Tableau Visualization</a></li>
+            <li><a href="lab05.html">Lab 5: Vibe Coding</a></li>
+            <li><a href="lab06.html">Lab 6: Hometown Map</a></li>
+            <li><a href="reflections.html">Lab Reflections</a></li>
+        </ul>
+    </nav>
+    <header>
+        <button class="dark-mode-toggle" id="dark-mode-toggle" aria-label="Toggle dark mode" title="Toggle dark mode"></button>
+        <h1>Lab Reflections</h1>
+    </header>
+
+    <main>
+        <!-- Lab 2 Reflection (PDF — embedded) -->
+        <section class="reflection-card">
+            <h2>Lab 2 – AI Experimentation</h2>
+            <p>This lab focused on experimenting with different AI tools and thinking critically about how they work. I tested multiple AI platforms and compared their responses to different prompts. The goal was to understand both the strengths and limitations of AI and how it can be used responsibly in academic and professional work. This lab also involved documenting my findings and adding them to my portfolio site.</p>
+            <p><strong>Tools / Skills:</strong> AI tools (ChatGPT, Gemini, etc.), prompt writing, evaluating AI responses, ethical AI use</p>
+            <iframe src="reflections/lab2_reflection.pdf" class="pdf-viewer" title="Lab 2 Reflection PDF"></iframe>
+            <a href="reflections/lab2_reflection.pdf" class="download-link" download>📄 Download PDF</a>
+        </section>
+
+        <!-- Lab 3 Reflection (PDF — embedded) -->
+        <section class="reflection-card">
+            <h2>Lab 3 – Visualization Critique</h2>
+            <p>In this lab I analyzed an existing data visualization using ideas from Edward Tufte about what makes a good visual explanation. I chose a visualization and wrote a critique explaining what worked well and what could be improved. This assignment helped me think more carefully about how data is presented and how visual design choices can affect how people interpret information.</p>
+            <p><strong>Tools / Skills:</strong> Data visualization critique, design principles, visual communication analysis, page design</p>
+            <iframe src="reflections/lab3_reflection.pdf" class="pdf-viewer" title="Lab 3 Reflection PDF"></iframe>
+            <a href="reflections/lab3_reflection.pdf" class="download-link" download>📄 Download PDF</a>
+        </section>
+
+        <!-- Lab 4 Reflection (PDF — embedded) -->
+        <section class="reflection-card">
+            <h2>Lab 4 – Tableau Visualization</h2>
+            <p>For this lab I worked with Tableau Public to create a data visualization using a dataset. I explored the data to see what patterns or trends appeared and then designed a visualization to show those findings. After creating the chart in Tableau, I embedded the interactive visualization into my portfolio site. This lab helped me get more comfortable with exploratory data analysis and visual storytelling.</p>
+            <p><strong>Tools / Skills:</strong> Tableau Public, data exploration, visualization design, embedding interactive graphics in HTML</p>
+            <iframe src="reflections/lab4_reflection.pdf" class="pdf-viewer" title="Lab 4 Reflection PDF"></iframe>
+            <a href="reflections/lab4_reflection.pdf" class="download-link" download>📄 Download PDF</a>
+        </section>
+
+        <!-- Lab 5 Reflection (PDF — embedded) -->
+        <section class="reflection-card">
+            <h2>Lab 5 – Vibe Coding with AI</h2>
+            <p>This lab explored the idea of "vibe coding," which is basically using AI tools to help generate and troubleshoot code. I experimented with AI coding assistants and learned how they can speed up development but still require human oversight. The goal was not just to generate code, but to understand what the code was doing and how to modify it.</p>
+            <p><strong>Tools / Skills:</strong> AI coding tools (GitHub Copilot), debugging, editing AI-generated code, GitHub</p>
+            <iframe src="reflections/lab5_reflection.pdf" class="pdf-viewer" title="Lab 5 Reflection PDF"></iframe>
+            <a href="reflections/lab5_reflection.pdf" class="download-link" download>📄 Download PDF</a>
+        </section>
+
+        <!-- Lab 6 Reflection (PDF — embedded) -->
+        <section class="reflection-card">
+            <h2>Lab 6 – Interactive Mapping Project</h2>
+            <p>In this lab I created an interactive hometown map that highlighted locations that are personally meaningful to me. I designed a custom basemap in Mapbox Studio and then used Python to generate an interactive map with markers and pop-ups for each location. The project combined design, data, and coding, and helped me understand how geographic data can be turned into interactive visual experiences.</p>
+            <p><strong>Tools / Skills:</strong> Mapbox Studio, Python, Folium, geocoding, CSV data creation, interactive mapping</p>
+            <iframe src="reflections/lab6_reflection.pdf" class="pdf-viewer" title="Lab 6 Reflection PDF"></iframe>
+            <a href="reflections/lab6_reflection.pdf" class="download-link" download>📄 Download PDF</a>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Marissa Houff. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Hamburger menu toggle
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('nav-menu');
+        hamburger.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            hamburger.classList.toggle('active');
+            hamburger.setAttribute('aria-expanded', navMenu.classList.contains('active'));
+        });
+
+        // Dark mode toggle
+        const darkModeToggle = document.getElementById('dark-mode-toggle');
+        const htmlElement = document.documentElement;
+        if (localStorage.getItem('darkMode') === 'enabled') {
+            htmlElement.classList.add('dark-mode');
+        }
+        darkModeToggle.addEventListener('click', () => {
+            htmlElement.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', htmlElement.classList.contains('dark-mode') ? 'enabled' : 'disabled');
+        });
+    </script>
+</body>
+</html>
