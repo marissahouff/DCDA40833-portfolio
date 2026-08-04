@@ -294,6 +294,38 @@ main section li {
     border-radius: 8px;
 }
 
+.profile-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin: 1.5rem auto;
+    gap: 1rem;
+}
+
+.profile-card .profile-img {
+    width: min(100%, 320px);
+    height: auto;
+    border-radius: 12px;
+    object-fit: cover;
+    display: block;
+}
+
+.resume-link {
+    display: inline-block;
+    padding: 0.6rem 1.5rem;
+    background: #556270;
+    color: #fff;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 0.95rem;
+    letter-spacing: 0.5px;
+}
+
+.resume-link:hover {
+    filter: brightness(1.08);
+}
+
 /* Grid layout for multiple visualizations */
 .viz-grid {
     display: grid;
